@@ -4,6 +4,10 @@
  */
 package consultorio_dentista;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author diego
@@ -15,6 +19,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
      */
     public Cadastro_Cliente() {
         initComponents();
+        
+        // Codigo para ativar a ordenação da Jtable
+        DefaultTableModel modelo = (DefaultTableModel) jTclientes.getModel();
+        jTclientes.setRowSorter(new TableRowSorter(modelo));
+        
         
     }
 
@@ -34,22 +43,18 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtrg = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         txtendereco = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTclientes = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,7 +66,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton1.setText("Tela de dados");
+        jButton1.setText("Menu");
         jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +75,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(140, 640, 162, 27);
+        jButton1.setBounds(30, 30, 170, 27);
 
         txtnome.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtnome.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +97,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel2.setBounds(100, 210, 32, 22);
 
         txtrg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrgActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtrg);
         txtrg.setBounds(260, 210, 370, 32);
 
@@ -100,19 +110,6 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(100, 270, 82, 22);
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(260, 330, 370, 32);
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel4.setText("E-Mail:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(100, 450, 56, 22);
-
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(260, 390, 370, 32);
-
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
         jLabel5.setText("Cadastro de Cliente");
         jPanel1.add(jLabel5);
@@ -120,7 +117,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton2.setText("Enviar");
+        jButton2.setText("Cadastrar");
         jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,39 +126,16 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(490, 643, 114, 30);
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel6.setText("Telefone:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(100, 390, 76, 22);
-
-        jTextField5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(260, 450, 370, 32);
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel7.setText("CEP:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(100, 330, 42, 22);
+        jButton2.setBounds(570, 340, 160, 30);
 
         txtendereco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jPanel1.add(txtendereco);
-        txtendereco.setBounds(260, 270, 370, 32);
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel8.setText("Idade:");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(100, 510, 49, 22);
-
-        jTextField7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtendereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtenderecoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7);
-        jTextField7.setBounds(260, 510, 370, 32);
+        jPanel1.add(txtendereco);
+        txtendereco.setBounds(260, 270, 370, 32);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel10);
@@ -182,6 +156,63 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel13);
         jLabel13.setBounds(0, 90, 260, 10);
+
+        jTclientes.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jTclientes.setForeground(new java.awt.Color(0, 0, 0));
+        jTclientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome Completo", "RG", "Endereço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTclientesMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTclientesMouseReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTclientes);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 390, 720, 406);
+
+        jButton3.setBackground(new java.awt.Color(153, 255, 255));
+        jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton3.setText("Excluir");
+        jButton3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(30, 340, 160, 30);
+
+        jButton4.setBackground(new java.awt.Color(153, 255, 255));
+        jButton4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton4.setText("Atualizar");
+        jButton4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4);
+        jButton4.setBounds(380, 340, 160, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,23 +244,65 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dados Teladedados = new Dados();
-        Teladedados.setVisible(true);
-        this.dispose(); // Fecha o LoginFrame
+        Menu Telademenu = new Menu();
+        Telademenu.setVisible(true); // Deixa a tela do menu visivel
+        this.dispose(); // Fecha a tela atual
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnomeActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        // Botão de Cadastro
+        DefaultTableModel dtmClientes = (DefaultTableModel) jTclientes.getModel();
+        Object[] dados = {txtnome.getText(), txtrg.getText(), txtendereco.getText()};
+        dtmClientes.addRow(dados);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtrgActionPerformed
+
+    private void txtenderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtenderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtenderecoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Botão de Excluir
+        jTclientes.getSelectedRow();
+        // System.out.println("Linha selecionada" + jTclientes.getSelectedRow());
+        
+        if (jTclientes.getSelectedRow() != -1) {
+            DefaultTableModel dtmClientes = (DefaultTableModel) jTclientes.getModel();
+            dtmClientes.removeRow(jTclientes.getSelectedRow());
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Selecione um cadastro para excluir");
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // Botão de Atualizar
+        if (jTclientes.getSelectedRow() != -1) {
+            jTclientes.setValueAt(txtnome.getText(), jTclientes.getSelectedRow(), 0);
+            jTclientes.setValueAt(txtrg.getText(), jTclientes.getSelectedRow(), 1);
+            jTclientes.setValueAt(txtendereco.getText(), jTclientes.getSelectedRow(), 2);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseClicked
+
+    }//GEN-LAST:event_jTclientesMouseClicked
+
+    private void jTclientesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseReleased
+        if(jTclientes.getSelectedRow() != -1) {
+           txtnome.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 0).toString());
+           txtrg.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 1).toString());
+           txtendereco.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 2).toString());
+        }
+    }//GEN-LAST:event_jTclientesMouseReleased
 
     /**
      * @param args the command line arguments
@@ -270,6 +343,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButton1;
     javax.swing.JButton jButton2;
+    javax.swing.JButton jButton3;
+    javax.swing.JButton jButton4;
     javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel10;
     javax.swing.JLabel jLabel11;
@@ -277,17 +352,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     javax.swing.JLabel jLabel13;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
-    javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabel5;
-    javax.swing.JLabel jLabel6;
-    javax.swing.JLabel jLabel7;
-    javax.swing.JLabel jLabel8;
     javax.swing.JLabel jLabel9;
     javax.swing.JPanel jPanel1;
-    javax.swing.JTextField jTextField3;
-    javax.swing.JTextField jTextField4;
-    javax.swing.JTextField jTextField5;
-    javax.swing.JTextField jTextField7;
+    javax.swing.JScrollPane jScrollPane1;
+    javax.swing.JTable jTclientes;
     javax.swing.JTextField txtendereco;
     javax.swing.JTextField txtnome;
     javax.swing.JTextField txtrg;
