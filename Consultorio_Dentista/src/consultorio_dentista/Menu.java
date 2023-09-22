@@ -34,6 +34,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -55,37 +57,60 @@ public class Menu extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
         jLabel3.setText("Menu De Seleção");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(170, 40, 190, 30);
+        jLabel3.setBounds(160, 40, 190, 30);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton1.setText("Acessar");
-        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(270, 130, 130, 27);
+        jButton1.setBounds(300, 130, 130, 24);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel4.setText("Cadastrar Cliente:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 130, 170, 20);
+        jLabel4.setBounds(30, 130, 170, 30);
 
+        jButton3.setBackground(new java.awt.Color(153, 255, 255));
+        jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton3.setText("Deslogar");
+        jButton3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(190, 350, 130, 27);
+        jButton3.setBounds(190, 327, 130, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel6);
         jLabel6.setBounds(370, 0, 120, 100);
+
+        jButton2.setBackground(new java.awt.Color(153, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton2.setText("Acessar");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(300, 190, 130, 24);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel5.setText("Cadastrar Funcionario");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(30, 190, 210, 27);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(64, -6, 490, 420);
@@ -96,9 +121,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Cadastro_Cliente Teladecadastro = new Cadastro_Cliente();
-        Teladecadastro.setVisible(true);
-        this.dispose(); // Fecha o LoginFrame
+        Cadastro_Cliente Teladecadastroc = new Cadastro_Cliente();
+        Teladecadastroc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -107,6 +132,13 @@ public class Menu extends javax.swing.JFrame {
         Deslogar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Botão para acessar Cadastro de funcionario
+        Cadastro_Funcionario Teladecadastrof = new Cadastro_Funcionario();
+        Teladecadastrof.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,11 +177,13 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButton1;
+    javax.swing.JButton jButton2;
     javax.swing.JButton jButton3;
     javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
     javax.swing.JLabel jLabel6;
     javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

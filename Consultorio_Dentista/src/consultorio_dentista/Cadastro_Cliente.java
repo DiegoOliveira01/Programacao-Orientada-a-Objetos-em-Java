@@ -111,7 +111,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel3.setBounds(100, 270, 82, 22);
 
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
-        jLabel5.setText("Cadastro de Cliente");
+        jLabel5.setText("Cadastro De Cliente");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(280, 30, 250, 34);
 
@@ -243,7 +243,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Botão para voltar ao Menu
         Menu Telademenu = new Menu();
         Telademenu.setVisible(true); // Deixa a tela do menu visivel
         this.dispose(); // Fecha a tela atual
