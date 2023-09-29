@@ -7,6 +7,16 @@ package consultorio_dentista;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Vector;
+
 
 /**
  *
@@ -19,6 +29,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
      */
     public Cadastro_Cliente() {
         initComponents();
+        table_update();
         
         // Codigo para ativar a ordenação da Jtable
         DefaultTableModel modelo = (DefaultTableModel) jTclientes.getModel();
@@ -253,11 +264,68 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnomeActionPerformed
 
+    Connection con1;
+    PreparedStatement insert;
+    
+    private void table_update(){
+        int CC;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+            insert = con1.prepareStatement("SELECT * FROM cliente");
+            ResultSet Rs = insert.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTclientes.getModel();
+             DFT.setRowCount(0);
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+           
+                for (int ii = 1; ii <= CC; ii++) {
+                    v2.add(Rs.getString("idCliente"));
+                    v2.add(Rs.getString("Nome"));
+                    v2.add(Rs.getString("Endereco"));
+                    v2.add(Rs.getString("RG"));
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botão de Cadastro
-        DefaultTableModel dtmClientes = (DefaultTableModel) jTclientes.getModel();
+        
+        /* DefaultTableModel dtmClientes = (DefaultTableModel) jTclientes.getModel();
         Object[] dados = {txtnome.getText(), txtrg.getText(), txtendereco.getText()};
         dtmClientes.addRow(dados);
+        Codigo para inserir manualmente dados na tabela*/
+
+        String nome = txtnome.getText();
+        String rg = txtrg.getText();
+        String endereco = txtendereco.getText();
+        
+        try {
+          Class.forName("com.mysql.cj.jdbc.Driver"); //Register the mysql driver
+          con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+          insert = con1.prepareStatement("insert into cliente (Nome,Endereco,RG)values(?,?,?)");
+          insert.setString(1,nome);
+          insert.setString(2,rg);
+          insert.setString(3,endereco);
+          insert.executeUpdate();
+          JOptionPane.showMessageDialog(this, "Record Saved");
+          
+          
+          txtnome.setText("");
+          txtrg.setText("");
+          txtendereco.setText("");
+          table_update();
+        } catch (ClassNotFoundException ex) {
+          Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+          Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrgActionPerformed
