@@ -4,10 +4,21 @@
  */
 package consultorio_dentista;
 
-/**
- *
- * @author diego
- */
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Vector;
+
 public class Cadastro_Horario extends javax.swing.JFrame {
 
     /**
@@ -15,6 +26,8 @@ public class Cadastro_Horario extends javax.swing.JFrame {
      */
     public Cadastro_Horario() {
         initComponents();
+        table_C_update();
+        table_F_update();
     }
 
     /**
@@ -26,16 +39,59 @@ public class Cadastro_Horario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTFuncionarios = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTclientes = new javax.swing.JTable();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        botaohorario = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtcliente = new javax.swing.JTextField();
+        txtfuncionario = new javax.swing.JTextField();
+        txtdata = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtperiodo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 640));
+        setResizable(false);
         getContentPane().setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel2.setBackground(new java.awt.Color(132, 191, 214));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 204))); // NOI18N
+        jPanel2.setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(132, 191, 214));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.setToolTipText("Dados");
+        jPanel1.setName(""); // NOI18N
+        jPanel1.setLayout(null);
+
+        jTFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Funcionario", "Nome Completo", "RG", "Endereço"
+            }
+        ));
+        jTFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFuncionariosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTFuncionarios);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 170, 380, 110);
+
+        jTclientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -51,33 +107,258 @@ public class Cadastro_Horario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 40, 456, 130);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jTclientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTclientesMouseClicked(evt);
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        });
+        jScrollPane1.setViewportView(jTclientes);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 190, 456, 120);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 20, 380, 120);
+
+        jDateChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDateChooser1MouseClicked(evt);
+            }
+        });
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser1PropertyChange(evt);
+            }
+        });
+        jPanel1.add(jDateChooser1);
+        jDateChooser1.setBounds(20, 290, 220, 40);
+
+        botaohorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhã", "Tarde" }));
+        botaohorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaohorarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botaohorario);
+        botaohorario.setBounds(290, 290, 100, 40);
+
+        jPanel2.add(jPanel1);
+        jPanel1.setBounds(10, 10, 420, 350);
+
+        jButton1.setBackground(new java.awt.Color(153, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton1.setText("Menu");
+        jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(500, 20, 150, 30);
+
+        jButton2.setBackground(new java.awt.Color(153, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton2.setText("Cadastrar");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(500, 270, 160, 30);
+
+        txtcliente.setEditable(false);
+        jPanel2.add(txtcliente);
+        txtcliente.setBounds(150, 390, 200, 26);
+        jPanel2.add(txtfuncionario);
+        txtfuncionario.setBounds(150, 440, 200, 26);
+
+        txtdata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdataActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtdata);
+        txtdata.setBounds(150, 490, 200, 26);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel6.setText("Cliente:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(20, 390, 90, 22);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setText("Funcionario:");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(20, 440, 130, 22);
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel8.setText("Data:");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(20, 490, 133, 22);
+        jPanel2.add(txtperiodo);
+        txtperiodo.setBounds(150, 540, 200, 26);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setText("Periodo:");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(20, 540, 90, 20);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(50, 0, 700, 640);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Botão para voltar ao Menu
+        Menu Telademenu = new Menu();
+        Telademenu.setVisible(true); // Deixa a tela do menu visivel
+        this.dispose(); // Fecha a tela atual
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Botão de Cadastro
+
+        /* DefaultTableModel dtmClientes = (DefaultTableModel) jTclientes.getModel();
+        Object[] dados = {txtnome.getText(), txtrg.getText(), txtendereco.getText()};
+        dtmClientes.addRow(dados);
+        Codigo para inserir manualmente dados na tabela*/
+
+        /*String nome = txtnome.getText();
+        String rg = txtrg.getText();
+        String endereco = txtendereco.getText();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); //Register the mysql driver
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+            insert = con1.prepareStatement("insert into funcionario (Nome,RG,Endereco)values(?,?,?)");
+            insert.setString(1,nome);
+            insert.setString(2,rg);
+            insert.setString(3,endereco);
+            insert.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Registro Feito Com Sucesso!");
+
+            txtnome.setText("");
+            txtrg.setText("");
+            txtendereco.setText("");
+            table_update();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdataActionPerformed
+
+    private void jTclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTclientes.getModel();
+        int selectedIndex = jTclientes.getSelectedRow();
+      
+        txtcliente.setText(model.getValueAt(selectedIndex, 1).toString());
+    }//GEN-LAST:event_jTclientesMouseClicked
+
+    private void jTFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFuncionariosMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTFuncionarios.getModel();
+        int selectedIndex = jTFuncionarios.getSelectedRow();
+      
+        txtfuncionario.setText(model.getValueAt(selectedIndex, 1).toString());
+    }//GEN-LAST:event_jTFuncionariosMouseClicked
+
+    private void botaohorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaohorarioActionPerformed
+        // TODO add your handling code here:
+        // Obtém o item selecionado no JComboBox
+        Object selectedItem = botaohorario.getSelectedItem();
+    
+        // Verifica se o item selecionado não é nulo e é uma String
+        if (selectedItem != null && selectedItem instanceof String) {
+        // Define o texto do JTextField com o item selecionado
+        txtperiodo.setText((String) selectedItem);
+        }
+    }//GEN-LAST:event_botaohorarioActionPerformed
+
+    private void jDateChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MouseClicked
+     
+    }//GEN-LAST:event_jDateChooser1MouseClicked
+
+    private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
+        if ("date".equals(evt.getPropertyName())) {
+            // Obtém a data selecionada no JDateChooser
+            Date selectedDate = jDateChooser1.getDate();
+        
+            // Formata a data como uma string (você pode escolher o formato desejado)
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String formattedDate = dateFormat.format(selectedDate);
+        
+            // Define o texto do JTextField com a data formatada
+            txtdata.setText(formattedDate);
+        }
+    }//GEN-LAST:event_jDateChooser1PropertyChange
+
+    Connection con1;
+    PreparedStatement insert;
+    
+    private void table_C_update(){
+        int CC;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+            insert = con1.prepareStatement("SELECT * FROM cliente");
+            ResultSet Rs = insert.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTclientes.getModel();
+             DFT.setRowCount(0);
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+           
+                for (int ii = 1; ii <= CC; ii++) {
+                    v2.add(Rs.getString("idCliente"));
+                    v2.add(Rs.getString("Nome"));
+                    v2.add(Rs.getString("RG"));
+                    v2.add(Rs.getString("Endereco"));
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    private void table_F_update(){
+        int CC;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+            insert = con1.prepareStatement("SELECT * FROM funcionario");
+            ResultSet Rs = insert.executeQuery();
+            
+            ResultSetMetaData RSMD = Rs.getMetaData();
+            CC = RSMD.getColumnCount();
+            DefaultTableModel DFT = (DefaultTableModel) jTFuncionarios.getModel();
+             DFT.setRowCount(0);
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+           
+                for (int ii = 1; ii <= CC; ii++) {
+                    v2.add(Rs.getString("idFuncionario"));
+                    v2.add(Rs.getString("Nome"));
+                    v2.add(Rs.getString("RG"));
+                    v2.add(Rs.getString("Endereco"));
+                }
+                DFT.addRow(v2);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -111,9 +392,23 @@ public class Cadastro_Horario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JComboBox<String> botaohorario;
+    javax.swing.JButton jButton1;
+    javax.swing.JButton jButton2;
+    com.toedter.calendar.JDateChooser jDateChooser1;
+    javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel6;
+    javax.swing.JLabel jLabel7;
+    javax.swing.JLabel jLabel8;
+    javax.swing.JPanel jPanel1;
+    javax.swing.JPanel jPanel2;
     javax.swing.JScrollPane jScrollPane1;
     javax.swing.JScrollPane jScrollPane2;
-    javax.swing.JTable jTable1;
-    javax.swing.JTable jTable2;
+    javax.swing.JTable jTFuncionarios;
+    javax.swing.JTable jTclientes;
+    javax.swing.JTextField txtcliente;
+    javax.swing.JTextField txtdata;
+    javax.swing.JTextField txtfuncionario;
+    javax.swing.JTextField txtperiodo;
     // End of variables declaration//GEN-END:variables
 }
