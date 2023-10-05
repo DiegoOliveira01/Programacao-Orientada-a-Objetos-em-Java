@@ -73,6 +73,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(132, 191, 214));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 204))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(760, 820));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
         jPanel1.setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
@@ -175,15 +180,20 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome Completo", "RG", "Endereço"
+                "ID Cliente", "Nome Completo", "RG", "Endereço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTclientes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTclientesFocusLost(evt);
             }
         });
         jTclientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -285,8 +295,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                 for (int ii = 1; ii <= CC; ii++) {
                     v2.add(Rs.getString("idCliente"));
                     v2.add(Rs.getString("Nome"));
-                    v2.add(Rs.getString("Endereco"));
                     v2.add(Rs.getString("RG"));
+                    v2.add(Rs.getString("Endereco"));
                 }
                 DFT.addRow(v2);
             }
@@ -309,12 +319,12 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         try {
           Class.forName("com.mysql.cj.jdbc.Driver"); //Register the mysql driver
           con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
-          insert = con1.prepareStatement("insert into cliente (Nome,Endereco,RG)values(?,?,?)");
+          insert = con1.prepareStatement("insert into cliente (Nome,RG,Endereco)values(?,?,?)");
           insert.setString(1,nome);
           insert.setString(2,rg);
           insert.setString(3,endereco);
           insert.executeUpdate();
-          JOptionPane.showMessageDialog(this, "Record Saved");
+          JOptionPane.showMessageDialog(this, "Registro Feito Com Sucesso!");
           
           
           txtnome.setText("");
@@ -338,6 +348,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Botão de Excluir
+        /*
+        
         jTclientes.getSelectedRow();
         // System.out.println("Linha selecionada" + jTclientes.getSelectedRow());
         
@@ -348,29 +360,111 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Selecione um cadastro para excluir");
         }
+        */
+        
+        DefaultTableModel model = (DefaultTableModel) jTclientes.getModel();
+        int selectedIndex = jTclientes.getSelectedRow();
+            
+        if (jTclientes.getSelectedRow() != -1){
+        try {   
+                
+            int idCliente = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            int dialogResult = JOptionPane.showConfirmDialog (null, "Você Realmente Quer Apagar Esse Registro?","AVISO",JOptionPane.YES_NO_OPTION);
+            if(dialogResult == JOptionPane.YES_OPTION){
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+                insert = con1.prepareStatement("delete from cliente where idCliente = ?");
+                insert.setInt(1,idCliente);
+                insert.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Registro Deletedo Com Êxito");
+                txtnome.setText("");
+                txtrg.setText("");
+                txtendereco.setText("");
+                table_update();
+           
+           }
+        } catch (ClassNotFoundException | SQLException ex) {
+        
+        }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Selecione um cadastro para excluir!");
+        }
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Botão de Atualizar
-        if (jTclientes.getSelectedRow() != -1) {
+      /*if (jTclientes.getSelectedRow() != -1) {
             jTclientes.setValueAt(txtnome.getText(), jTclientes.getSelectedRow(), 0);
             jTclientes.setValueAt(txtrg.getText(), jTclientes.getSelectedRow(), 1);
             jTclientes.setValueAt(txtendereco.getText(), jTclientes.getSelectedRow(), 2);
+        } */
+        DefaultTableModel model = (DefaultTableModel) jTclientes.getModel();
+        int selectedIndex = jTclientes.getSelectedRow();
+        if (jTclientes.getSelectedRow() != -1){
+            try {
+            int idCliente = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+            String nome = txtnome.getText();
+            String rg = txtrg.getText();
+            String endereco = txtendereco.getText();
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
+            insert = con1.prepareStatement("update cliente set Nome= ?,RG= ?,Endereco= ? where idCliente= ?");
+            insert.setString(1,nome);
+            insert.setString(2,rg);
+            insert.setString(3,endereco);
+            insert.setInt(4,idCliente);
+            insert.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Registro Atualizado Com Sucesso!");
+            txtnome.setText("");
+            txtrg.setText("");
+            txtendereco.setText("");
+            table_update();
+            
+        }
+        catch (ClassNotFoundException ex) {
+   
+        }
+        catch (SQLException ex) {
+            
+        }
+        
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Selecione um cadastro para Atualizar!");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseClicked
-
+        DefaultTableModel model = (DefaultTableModel) jTclientes.getModel();
+        int selectedIndex = jTclientes.getSelectedRow();
+      
+        txtnome.setText(model.getValueAt(selectedIndex, 1).toString());
+        txtrg.setText(model.getValueAt(selectedIndex, 2).toString());
+        txtendereco.setText(model.getValueAt(selectedIndex, 3).toString());
     }//GEN-LAST:event_jTclientesMouseClicked
 
     private void jTclientesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseReleased
-        if(jTclientes.getSelectedRow() != -1) {
+        /*if(jTclientes.getSelectedRow() != -1) {
            txtnome.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 0).toString());
            txtrg.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 1).toString());
            txtendereco.setText(jTclientes.getValueAt(jTclientes.getSelectedRow(), 2).toString());
-        }
+        } */
     }//GEN-LAST:event_jTclientesMouseReleased
+
+    private void jTclientesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTclientesFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTclientesFocusLost
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // Codigo Para Deselecionar Linhas Do Jtable
+        txtnome.setText("");
+        txtrg.setText("");
+        txtendereco.setText("");
+        table_update();
+    }//GEN-LAST:event_jPanel1MouseClicked
 
     /**
      * @param args the command line arguments
