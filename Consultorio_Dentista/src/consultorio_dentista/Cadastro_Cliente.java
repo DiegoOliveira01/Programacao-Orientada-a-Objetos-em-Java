@@ -66,8 +66,16 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jTclientes = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        txtobs = new javax.swing.JTextField();
+        txttelefone = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro De Cliente");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(132, 191, 214));
@@ -100,17 +108,17 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtnome);
-        txtnome.setBounds(260, 150, 370, 32);
+        txtnome.setBounds(180, 150, 270, 32);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Nome Completo:");
+        jLabel1.setText("Observações:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 150, 133, 22);
+        jLabel1.setBounds(510, 270, 111, 22);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("RG:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(100, 210, 32, 22);
+        jLabel2.setBounds(30, 210, 32, 22);
 
         txtrg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtrg.addActionListener(new java.awt.event.ActionListener() {
@@ -119,17 +127,17 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtrg);
-        txtrg.setBounds(260, 210, 370, 32);
+        txtrg.setBounds(180, 210, 270, 32);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Endereço:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(100, 270, 82, 22);
+        jLabel3.setBounds(30, 270, 82, 22);
 
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
         jLabel5.setText("Cadastro De Cliente");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(280, 30, 250, 34);
+        jLabel5.setBounds(370, 30, 250, 34);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -142,7 +150,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(570, 340, 160, 30);
+        jButton2.setBounds(770, 340, 160, 30);
 
         txtendereco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtendereco.addActionListener(new java.awt.event.ActionListener() {
@@ -151,11 +159,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtendereco);
-        txtendereco.setBounds(260, 270, 370, 32);
+        txtendereco.setBounds(180, 270, 270, 32);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(640, -10, 119, 109);
+        jLabel10.setBounds(840, -10, 119, 109);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel9);
@@ -167,7 +175,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(260, 90, 260, 10);
+        jLabel12.setBounds(700, 90, 260, 10);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel13);
@@ -180,11 +188,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Cliente", "Nome Completo", "RG", "Endereço"
+                "ID Cliente", "Nome Completo", "RG", "Endereço", "Telefone", "Email", "Observações"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -207,7 +215,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTclientes);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 390, 720, 406);
+        jScrollPane1.setBounds(20, 390, 920, 406);
 
         jButton3.setBackground(new java.awt.Color(153, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -233,7 +241,53 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(380, 340, 160, 30);
+        jButton4.setBounds(590, 340, 160, 30);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(260, 90, 260, 10);
+
+        txtobs.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtobs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtobsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtobs);
+        txtobs.setBounds(650, 270, 270, 32);
+
+        txttelefone.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txttelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttelefoneActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txttelefone);
+        txttelefone.setBounds(650, 150, 270, 32);
+
+        txtemail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtemail);
+        txtemail.setBounds(650, 210, 270, 32);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setText("Nome Completo:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(30, 150, 133, 22);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel6.setText("Telefone:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(510, 150, 76, 22);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setText("Email:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(510, 210, 49, 22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,8 +295,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,6 +351,9 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                     v2.add(Rs.getString("Nome"));
                     v2.add(Rs.getString("RG"));
                     v2.add(Rs.getString("Endereco"));
+                    v2.add(Rs.getString("Telefone"));
+                    v2.add(Rs.getString("Email"));
+                    v2.add(Rs.getString("Observacoes"));
                 }
                 DFT.addRow(v2);
             }
@@ -315,14 +372,20 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         String nome = txtnome.getText();
         String rg = txtrg.getText();
         String endereco = txtendereco.getText();
+        String telefone = txttelefone.getText();
+        String email = txtemail.getText();
+        String observacoes = txtobs.getText();
         
         try {
           Class.forName("com.mysql.cj.jdbc.Driver"); //Register the mysql driver
           con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
-          insert = con1.prepareStatement("insert into cliente (Nome,RG,Endereco)values(?,?,?)");
+          insert = con1.prepareStatement("insert into cliente (Nome,RG,Endereco,Telefone,Email,Observacoes)values(?,?,?,?,?,?)");
           insert.setString(1,nome);
           insert.setString(2,rg);
           insert.setString(3,endereco);
+          insert.setString(4,telefone);
+          insert.setString(5,email);
+          insert.setString(6,observacoes);
           insert.executeUpdate();
           JOptionPane.showMessageDialog(this, "Registro Feito Com Sucesso!");
           
@@ -330,6 +393,9 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
           txtnome.setText("");
           txtrg.setText("");
           txtendereco.setText("");
+          txttelefone.setText("");
+          txtemail.setText("");
+          txtobs.setText("");
           table_update();
         } catch (ClassNotFoundException ex) {
           Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -380,6 +446,9 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                 txtnome.setText("");
                 txtrg.setText("");
                 txtendereco.setText("");
+                txttelefone.setText("");
+                txtemail.setText("");
+                txtobs.setText("");
                 table_update();
            
            }
@@ -408,19 +477,28 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             String nome = txtnome.getText();
             String rg = txtrg.getText();
             String endereco = txtendereco.getText();
+            String telefone = txttelefone.getText();
+            String email = txtemail.getText();
+            String observacoes = txtobs.getText();
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
-            insert = con1.prepareStatement("update cliente set Nome= ?,RG= ?,Endereco= ? where idCliente= ?");
+            insert = con1.prepareStatement("update cliente set Nome= ?,RG= ?,Endereco= ?, Telefone= ?, Email=?, Observacoes=? where idCliente= ?");
             insert.setString(1,nome);
             insert.setString(2,rg);
             insert.setString(3,endereco);
-            insert.setInt(4,idCliente);
+            insert.setString(4,telefone);
+            insert.setString(5,email);
+            insert.setString(6,observacoes);
+            insert.setInt(7,idCliente);
             insert.executeUpdate();
             JOptionPane.showMessageDialog(this, "Registro Atualizado Com Sucesso!");
             txtnome.setText("");
             txtrg.setText("");
             txtendereco.setText("");
+            txttelefone.setText("");
+            txtemail.setText("");
+            txtobs.setText("");
             table_update();
             
         }
@@ -444,6 +522,9 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         txtnome.setText(model.getValueAt(selectedIndex, 1).toString());
         txtrg.setText(model.getValueAt(selectedIndex, 2).toString());
         txtendereco.setText(model.getValueAt(selectedIndex, 3).toString());
+        txttelefone.setText(model.getValueAt(selectedIndex, 4).toString());
+        txtemail.setText(model.getValueAt(selectedIndex, 5).toString());
+        txtobs.setText(model.getValueAt(selectedIndex, 6).toString());
     }//GEN-LAST:event_jTclientesMouseClicked
 
     private void jTclientesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseReleased
@@ -463,8 +544,23 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         txtnome.setText("");
         txtrg.setText("");
         txtendereco.setText("");
+        txttelefone.setText("");
+        txtemail.setText("");
+        txtobs.setText("");
         table_update();
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void txtobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtobsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtobsActionPerformed
+
+    private void txttelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttelefoneActionPerformed
+
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -512,15 +608,22 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     javax.swing.JLabel jLabel11;
     javax.swing.JLabel jLabel12;
     javax.swing.JLabel jLabel13;
+    javax.swing.JLabel jLabel14;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabel5;
+    javax.swing.JLabel jLabel6;
+    javax.swing.JLabel jLabel7;
     javax.swing.JLabel jLabel9;
     javax.swing.JPanel jPanel1;
     javax.swing.JScrollPane jScrollPane1;
     javax.swing.JTable jTclientes;
+    javax.swing.JTextField txtemail;
     javax.swing.JTextField txtendereco;
     javax.swing.JTextField txtnome;
+    javax.swing.JTextField txtobs;
     javax.swing.JTextField txtrg;
+    javax.swing.JTextField txttelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -60,6 +60,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro DE Funcionario");
 
         jPanel1.setBackground(new java.awt.Color(132, 191, 214));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 153))); // NOI18N
@@ -67,7 +68,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
-        jLabel1.setText("Cadastro De Funcionario");
+        jLabel1.setText("Cadastro De Funcionário");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(240, 30, 309, 34);
 

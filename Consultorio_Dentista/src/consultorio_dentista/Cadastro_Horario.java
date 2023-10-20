@@ -57,9 +57,16 @@ public class Cadastro_Horario extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtperiodo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 640));
+        setTitle("Cadastro De Horario");
+        setPreferredSize(new java.awt.Dimension(1051, 799));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -140,7 +147,7 @@ public class Cadastro_Horario extends javax.swing.JFrame {
         botaohorario.setBounds(290, 290, 100, 40);
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(10, 10, 420, 350);
+        jPanel1.setBounds(20, 120, 420, 350);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -153,7 +160,7 @@ public class Cadastro_Horario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(500, 20, 150, 30);
+        jButton1.setBounds(20, 30, 150, 30);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -166,13 +173,13 @@ public class Cadastro_Horario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(500, 270, 160, 30);
+        jButton2.setBounds(640, 510, 160, 30);
 
         txtcliente.setEditable(false);
         jPanel2.add(txtcliente);
-        txtcliente.setBounds(150, 390, 200, 26);
+        txtcliente.setBounds(650, 140, 200, 26);
         jPanel2.add(txtfuncionario);
-        txtfuncionario.setBounds(150, 440, 200, 26);
+        txtfuncionario.setBounds(650, 190, 200, 26);
 
         txtdata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,32 +187,57 @@ public class Cadastro_Horario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtdata);
-        txtdata.setBounds(150, 490, 200, 26);
+        txtdata.setBounds(650, 240, 200, 26);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setText("Cliente:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(20, 390, 90, 22);
+        jLabel6.setBounds(520, 140, 90, 22);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setText("Funcionario:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 440, 130, 22);
+        jLabel7.setBounds(520, 190, 130, 22);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel8.setText("Data:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(20, 490, 133, 22);
+        jLabel8.setBounds(520, 240, 133, 22);
         jPanel2.add(txtperiodo);
-        txtperiodo.setBounds(150, 540, 200, 26);
+        txtperiodo.setBounds(650, 290, 200, 26);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Periodo:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 540, 90, 20);
+        jLabel1.setBounds(520, 290, 90, 20);
+
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
+        jLabel2.setText("Cadastro De Horário");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(350, 30, 270, 34);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(0, 90, 280, 10);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(680, 90, 280, 10);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(410, 90, 280, 10);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(140, 90, 280, 10);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(830, -10, 140, 120);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(50, 0, 700, 640);
+        jPanel2.setBounds(50, 0, 950, 800);
 
         pack();
         setLocationRelativeTo(null);
@@ -397,9 +429,15 @@ public class Cadastro_Horario extends javax.swing.JFrame {
     javax.swing.JButton jButton2;
     com.toedter.calendar.JDateChooser jDateChooser1;
     javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel10;
+    javax.swing.JLabel jLabel2;
+    javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
     javax.swing.JLabel jLabel6;
     javax.swing.JLabel jLabel7;
     javax.swing.JLabel jLabel8;
+    javax.swing.JLabel jLabel9;
     javax.swing.JPanel jPanel1;
     javax.swing.JPanel jPanel2;
     javax.swing.JScrollPane jScrollPane1;
