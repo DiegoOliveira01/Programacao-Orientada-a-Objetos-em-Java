@@ -4,6 +4,8 @@
  */
 package consultorio_dentista;
 
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -27,6 +29,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Cadastro
      */
+    
+    
+    
+    
+    
     public Cadastro_Cliente() {
         initComponents();
         table_update();
@@ -34,6 +41,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         // Codigo para ativar a ordenação da Jtable
         DefaultTableModel modelo = (DefaultTableModel) jTclientes.getModel();
         jTclientes.setRowSorter(new TableRowSorter(modelo));
+        
+        jTclientes.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        jTclientes.getTableHeader().setOpaque(false);
+        jTclientes.getTableHeader().setBackground(new Color (132,191,214));
+        jTclientes.getTableHeader().setForeground(new Color (5, 5, 5));
         
         
     }
@@ -53,7 +65,6 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtrg = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         txtendereco = new javax.swing.JTextField();
@@ -73,9 +84,25 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtemergencia = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBoxgenero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro De Cliente");
+        setTitle("Cadastro de Cliente");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(132, 191, 214));
@@ -108,17 +135,17 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtnome);
-        txtnome.setBounds(180, 150, 270, 32);
+        txtnome.setBounds(350, 130, 280, 32);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Observações:");
+        jLabel1.setText("Gênero: ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(510, 270, 111, 22);
+        jLabel1.setBounds(660, 310, 70, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("RG:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 210, 32, 22);
+        jLabel2.setBounds(130, 190, 32, 30);
 
         txtrg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtrg.addActionListener(new java.awt.event.ActionListener() {
@@ -127,17 +154,12 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtrg);
-        txtrg.setBounds(180, 210, 270, 32);
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel3.setText("Endereço:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 270, 82, 22);
+        txtrg.setBounds(350, 190, 280, 32);
 
         jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
-        jLabel5.setText("Cadastro De Cliente");
+        jLabel5.setText("Clientes Cadastrados");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(370, 30, 250, 34);
+        jLabel5.setBounds(510, 430, 280, 34);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -150,7 +172,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(770, 340, 160, 30);
+        jButton2.setBounds(1100, 390, 160, 30);
 
         txtendereco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtendereco.addActionListener(new java.awt.event.ActionListener() {
@@ -159,15 +181,15 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtendereco);
-        txtendereco.setBounds(180, 270, 270, 32);
+        txtendereco.setBounds(350, 250, 280, 32);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(840, -10, 119, 109);
+        jLabel10.setBounds(1180, -10, 119, 109);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(500, 90, 260, 10);
+        jLabel9.setBounds(540, 90, 260, 10);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel11);
@@ -175,7 +197,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(700, 90, 260, 10);
+        jLabel12.setBounds(500, 90, 260, 10);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel13);
@@ -188,17 +210,21 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Cliente", "Nome Completo", "RG", "Endereço", "Telefone", "Email", "Observações"
+                "ID Cliente", "Nome Completo", "RG", "Endereço", "Telefone", "Email", "Observações", "Contato De Emergencia", "Gênero"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTclientes.setOpaque(false);
+        jTclientes.setRowHeight(30);
+        jTclientes.setSelectionBackground(new java.awt.Color(0, 85, 255));
+        jTclientes.getTableHeader().setReorderingAllowed(false);
         jTclientes.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTclientesFocusLost(evt);
@@ -215,7 +241,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTclientes);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 390, 920, 406);
+        jScrollPane1.setBounds(10, 530, 1280, 406);
 
         jButton3.setBackground(new java.awt.Color(153, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -228,7 +254,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(30, 340, 160, 30);
+        jButton3.setBounds(30, 380, 160, 30);
 
         jButton4.setBackground(new java.awt.Color(153, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -241,11 +267,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(590, 340, 160, 30);
+        jButton4.setBounds(900, 390, 160, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(260, 90, 260, 10);
+        jLabel14.setBounds(1020, 90, 260, 10);
 
         txtobs.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtobs.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +280,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtobs);
-        txtobs.setBounds(650, 270, 270, 32);
+        txtobs.setBounds(850, 250, 280, 32);
 
         txttelefone.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txttelefone.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +289,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txttelefone);
-        txttelefone.setBounds(650, 150, 270, 32);
+        txttelefone.setBounds(850, 130, 280, 32);
 
         txtemail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtemail.addActionListener(new java.awt.event.ActionListener() {
@@ -272,37 +298,106 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtemail);
-        txtemail.setBounds(650, 210, 270, 32);
+        txtemail.setBounds(850, 190, 280, 32);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("Nome Completo:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 150, 133, 22);
+        jLabel4.setBounds(130, 130, 133, 30);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setText("Telefone:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(510, 150, 76, 22);
+        jLabel6.setBounds(660, 130, 76, 30);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel7.setText("Email:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(510, 210, 49, 22);
+        jLabel7.setBounds(660, 190, 49, 30);
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(1040, 90, 260, 10);
+
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 0, 28)); // NOI18N
+        jLabel8.setText("Cadastro de Cliente");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(510, 30, 250, 34);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(260, 90, 260, 10);
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel17);
+        jLabel17.setBounds(0, 490, 260, 10);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel18);
+        jLabel18.setBounds(260, 490, 260, 10);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel19);
+        jLabel19.setBounds(510, 490, 260, 10);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(1040, 490, 260, 10);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(840, 490, 260, 10);
+
+        jLabel22.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel22.setText("Endereço:");
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(130, 250, 100, 30);
+
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel23.setText("Contato De Emergencia:");
+        jPanel1.add(jLabel23);
+        jLabel23.setBounds(130, 310, 220, 30);
+
+        txtemergencia.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtemergencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemergenciaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtemergencia);
+        txtemergencia.setBounds(350, 310, 280, 32);
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel24);
+        jLabel24.setBounds(800, 90, 260, 10);
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel25);
+        jLabel25.setBounds(800, 90, 260, 10);
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel26);
+        jLabel26.setBounds(770, 490, 260, 10);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel3.setText("Observações:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(660, 250, 111, 30);
+
+        jComboBoxgenero.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jComboBoxgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Não-Binario", "Outro", "Prefiro Não Dizer" }));
+        jPanel1.add(jComboBoxgenero);
+        jComboBoxgenero.setBounds(850, 310, 280, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
         );
 
         pack();
@@ -354,6 +449,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                     v2.add(Rs.getString("Telefone"));
                     v2.add(Rs.getString("Email"));
                     v2.add(Rs.getString("Observacoes"));
+                    v2.add(Rs.getString("Emergencia"));
+                    v2.add(Rs.getString("Genero"));
                 }
                 DFT.addRow(v2);
             }
@@ -375,17 +472,27 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         String telefone = txttelefone.getText();
         String email = txtemail.getText();
         String observacoes = txtobs.getText();
+        String emergencia = txtemergencia.getText();
+        String genero = (String) (jComboBoxgenero.getSelectedItem());
+        
+        if (nome.isEmpty() || rg.isEmpty() || endereco.isEmpty() || telefone.isEmpty() || email.isEmpty() || observacoes.isEmpty() || emergencia.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos para continuar");
+        }
+        else{
         
         try {
           Class.forName("com.mysql.cj.jdbc.Driver"); //Register the mysql driver
           con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
-          insert = con1.prepareStatement("insert into cliente (Nome,RG,Endereco,Telefone,Email,Observacoes)values(?,?,?,?,?,?)");
+          
+          insert = con1.prepareStatement("insert into cliente (Nome,RG,Endereco,Telefone,Email,Observacoes,Emergencia,Genero)values(?,?,?,?,?,?,?,?)");
           insert.setString(1,nome);
           insert.setString(2,rg);
           insert.setString(3,endereco);
           insert.setString(4,telefone);
           insert.setString(5,email);
           insert.setString(6,observacoes);
+          insert.setString(7, emergencia);
+          insert.setString(8, genero);
           insert.executeUpdate();
           JOptionPane.showMessageDialog(this, "Registro Feito Com Sucesso!");
           
@@ -396,12 +503,16 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
           txttelefone.setText("");
           txtemail.setText("");
           txtobs.setText("");
+          txtemergencia.setText("");
+          jComboBoxgenero.setSelectedItem("Masculino");
           table_update();
         } catch (ClassNotFoundException ex) {
           Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
           Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }      
+        }    
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrgActionPerformed
@@ -449,6 +560,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                 txttelefone.setText("");
                 txtemail.setText("");
                 txtobs.setText("");
+                txtemergencia.setText("");
+                jComboBoxgenero.setSelectedItem("Masculino");
                 table_update();
            
            }
@@ -480,17 +593,21 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             String telefone = txttelefone.getText();
             String email = txtemail.getText();
             String observacoes = txtobs.getText();
+            String emergencia = txtemergencia.getText();
+            String genero = (String) (jComboBoxgenero.getSelectedItem());
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             con1 = DriverManager.getConnection("jdbc:mysql://localhost:3308/teste","root","887091");
-            insert = con1.prepareStatement("update cliente set Nome= ?,RG= ?,Endereco= ?, Telefone= ?, Email=?, Observacoes=? where idCliente= ?");
+            insert = con1.prepareStatement("update cliente set Nome= ?,RG= ?,Endereco= ?, Telefone= ?, Email=?, Observacoes=?, Emergencia=?, Genero=? where idCliente= ?");
             insert.setString(1,nome);
             insert.setString(2,rg);
             insert.setString(3,endereco);
             insert.setString(4,telefone);
             insert.setString(5,email);
             insert.setString(6,observacoes);
-            insert.setInt(7,idCliente);
+            insert.setString(7,emergencia);
+            insert.setString(8,genero);
+            insert.setInt(9,idCliente);
             insert.executeUpdate();
             JOptionPane.showMessageDialog(this, "Registro Atualizado Com Sucesso!");
             txtnome.setText("");
@@ -499,6 +616,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             txttelefone.setText("");
             txtemail.setText("");
             txtobs.setText("");
+            txtemergencia.setText("");
+            jComboBoxgenero.setSelectedItem("Masculino");
             table_update();
             
         }
@@ -525,6 +644,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         txttelefone.setText(model.getValueAt(selectedIndex, 4).toString());
         txtemail.setText(model.getValueAt(selectedIndex, 5).toString());
         txtobs.setText(model.getValueAt(selectedIndex, 6).toString());
+        txtemergencia.setText(model.getValueAt(selectedIndex, 7).toString());
+        jComboBoxgenero.setSelectedItem(model.getValueAt(selectedIndex, 8).toString());
     }//GEN-LAST:event_jTclientesMouseClicked
 
     private void jTclientesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTclientesMouseReleased
@@ -547,6 +668,8 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         txttelefone.setText("");
         txtemail.setText("");
         txtobs.setText("");
+        txtemergencia.setText("");
+        jComboBoxgenero.setSelectedItem("Masculino");
         table_update();
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -561,6 +684,10 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailActionPerformed
+
+    private void txtemergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemergenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemergenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,23 +730,38 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     javax.swing.JButton jButton2;
     javax.swing.JButton jButton3;
     javax.swing.JButton jButton4;
+    javax.swing.JComboBox<String> jComboBoxgenero;
     javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel10;
     javax.swing.JLabel jLabel11;
     javax.swing.JLabel jLabel12;
     javax.swing.JLabel jLabel13;
     javax.swing.JLabel jLabel14;
+    javax.swing.JLabel jLabel15;
+    javax.swing.JLabel jLabel16;
+    javax.swing.JLabel jLabel17;
+    javax.swing.JLabel jLabel18;
+    javax.swing.JLabel jLabel19;
     javax.swing.JLabel jLabel2;
+    javax.swing.JLabel jLabel20;
+    javax.swing.JLabel jLabel21;
+    javax.swing.JLabel jLabel22;
+    javax.swing.JLabel jLabel23;
+    javax.swing.JLabel jLabel24;
+    javax.swing.JLabel jLabel25;
+    javax.swing.JLabel jLabel26;
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabel5;
     javax.swing.JLabel jLabel6;
     javax.swing.JLabel jLabel7;
+    javax.swing.JLabel jLabel8;
     javax.swing.JLabel jLabel9;
     javax.swing.JPanel jPanel1;
     javax.swing.JScrollPane jScrollPane1;
     javax.swing.JTable jTclientes;
     javax.swing.JTextField txtemail;
+    javax.swing.JTextField txtemergencia;
     javax.swing.JTextField txtendereco;
     javax.swing.JTextField txtnome;
     javax.swing.JTextField txtobs;

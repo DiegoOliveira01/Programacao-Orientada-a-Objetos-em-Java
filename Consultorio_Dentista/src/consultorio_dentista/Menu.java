@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -50,16 +51,16 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(210, 90, 280, 10);
+        jLabel1.setBounds(350, 90, 280, 10);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel2);
         jLabel2.setBounds(0, 90, 280, 10);
 
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
-        jLabel3.setText("Menu De Seleção");
+        jLabel3.setText("Menu de Seleção");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(160, 40, 190, 30);
+        jLabel3.setBounds(230, 30, 190, 30);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -72,12 +73,12 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(300, 130, 130, 24);
+        jButton1.setBounds(390, 130, 130, 24);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel4.setText("Cadastrar Cliente:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 130, 170, 20);
+        jLabel4.setBounds(110, 130, 170, 20);
 
         jButton3.setBackground(new java.awt.Color(153, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -90,11 +91,11 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(190, 327, 130, 30);
+        jButton3.setBounds(260, 320, 130, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(370, 0, 120, 100);
+        jLabel6.setBounds(490, 0, 120, 100);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -107,17 +108,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(300, 190, 130, 24);
+        jButton2.setBounds(390, 190, 130, 24);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel5.setText("Cadastrar Funcionario");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 190, 210, 20);
+        jLabel5.setBounds(110, 190, 210, 20);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel7.setText("Cadastrar Horario");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(30, 250, 210, 20);
+        jLabel7.setBounds(110, 250, 210, 20);
 
         jButton4.setBackground(new java.awt.Color(153, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -130,10 +131,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(300, 250, 130, 24);
+        jButton4.setBounds(390, 250, 130, 24);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(210, 90, 280, 10);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(64, -6, 490, 420);
+        jPanel1.setBounds(-6, -6, 630, 420);
 
         pack();
         setLocationRelativeTo(null);
@@ -214,6 +219,7 @@ public class Menu extends javax.swing.JFrame {
     javax.swing.JLabel jLabel5;
     javax.swing.JLabel jLabel6;
     javax.swing.JLabel jLabel7;
+    javax.swing.JLabel jLabel8;
     javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

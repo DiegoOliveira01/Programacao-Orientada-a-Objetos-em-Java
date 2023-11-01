@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Entrar no sistema");
@@ -59,16 +60,16 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("ID:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(70, 150, 22, 22);
+        jLabel2.setBounds(160, 160, 22, 22);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Senha:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(70, 220, 57, 22);
+        jLabel3.setBounds(160, 230, 57, 22);
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(160, 150, 245, 32);
+        jTextField1.setBounds(260, 160, 190, 32);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -81,7 +82,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(100, 310, 120, 30);
+        jButton1.setBounds(150, 310, 120, 30);
 
         jPasswordField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,33 +91,33 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(160, 220, 245, 32);
+        jPasswordField1.setBounds(260, 220, 190, 32);
         jPanel1.add(jLabel4);
         jLabel4.setBounds(40, 33, 0, 0);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/_82034fd4-4d25-4fd5-9910-ca4e1a14046d-removebg-preview.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(380, 0, 120, 90);
+        jLabel5.setBounds(500, 0, 120, 90);
 
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
         jLabel6.setText("Clínica Dentária");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(170, 50, 180, 30);
+        jLabel6.setBounds(240, 50, 180, 30);
 
         jLabel7.setFont(new java.awt.Font("Monotype Corsiva", 1, 32)); // NOI18N
         jLabel7.setText("Dente Forte, Sorriso Amigo");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(70, 10, 350, 40);
+        jLabel7.setBounds(150, 10, 350, 40);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel1.setText("Login");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(230, 110, 50, 22);
+        jLabel1.setBounds(300, 110, 50, 24);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(230, 90, 280, 10);
+        jLabel8.setBounds(340, 90, 280, 10);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
         jPanel1.add(jLabel9);
@@ -133,16 +134,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(280, 310, 120, 30);
+        jButton2.setBounds(350, 310, 120, 30);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consultorio_dentista/Images/Black.png"))); // NOI18N
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(230, 90, 280, 10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,6 +221,7 @@ public class Login extends javax.swing.JFrame {
     javax.swing.JButton jButton1;
     javax.swing.JButton jButton2;
     javax.swing.JLabel jLabel1;
+    javax.swing.JLabel jLabel10;
     javax.swing.JLabel jLabel2;
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
